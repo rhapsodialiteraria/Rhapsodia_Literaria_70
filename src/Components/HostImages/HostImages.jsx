@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./HostImages.css";
 
-// Use actual images from your assets folder
 import bg1 from "../../assets/Background.svg";
 import bg2 from "../../assets/Background2.svg";
 import bg3 from "../../assets/Background.svg";
+
 
 const images = [bg1, bg2, bg3];
 
@@ -21,6 +21,7 @@ const HostImages = () => {
 
     return (
         <div id="home" className="host-container">
+            {/* Background slides */}
             {images.map((img, index) => (
                 <div
                     key={index}
@@ -32,6 +33,7 @@ const HostImages = () => {
                 ></div>
             ))}
 
+            {/* Dot navigation */}
             <div className="host-dots">
                 {images.map((_, index) => (
                     <span

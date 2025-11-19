@@ -1,0 +1,176 @@
+.gallery-team {
+  padding: 80px 120px;
+  color: white;
+  background: #161513;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* TITLES */
+.gallery-section h1,
+.team-section h1 {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+/* === TEAM SECTION === */
+.team-section {
+  margin-top: 100px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* EXACT 4 COLUMNS */
+  gap: 30px;
+  justify-items: center; /* center cards */
+}
+
+.team-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.team-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.team-card:hover img {
+  transform: scale(1.1);
+}
+
+.team-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.team-card:hover .team-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* CLICK HERE TEXT */
+.click-text {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff4c60;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.team-card:hover .click-text {
+  background: #ff4c60;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* === GALLERY SECTION === */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 30px;
+  justify-items: center;
+}
+
+.gallery-grid img {
+  width: 100%;
+  max-width: 260px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* === POPUP MODAL === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #222;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  color: white;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  background: #ff4c60;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modal-content button:hover {
+  background: #ff6b81;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-team {
+    padding: 50px 40px;
+  }
+}

@@ -10,6 +10,7 @@ import HostImages from './Components/HostImages/HostImages'
 import Day1Events from './Components/Day_1_Events/Day1Events'
 import Day2Events from './Components/Day_2_Events/Day2Events'
 import Sponsors from './Components/Sponsors/Sponsors'
+import GalleryTeam from './Components/GalleryTeam/GalleryTeam'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       <Day1Events />
       <Day2Events />
       <Contact />
+      <GalleryTeam />
       <Sponsors />
       <Footer />
     </div>

@@ -37,7 +37,7 @@ const Navbar = () => {
         }
     };
 
-    // ✅ Close menu when clicking outside (for mobile)
+    // ✅ Close mobile menu when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (
@@ -95,12 +95,24 @@ const Navbar = () => {
                 </li>
 
 
-
                 <li onClick={() => handleMenuClick("contact")}>
                     <AnchorLink className="anchor-link" offset={50} href="#contact">Contact Us</AnchorLink>
                     {menu === "contact" && <img src={underline} alt="underline" />}
                 </li>
-                {/* ✅ Sponsors section link */}
+
+                {/* ✅ Team & Gallery Link */}
+                <li onClick={() => handleMenuClick("teamgallery")}>
+                    <AnchorLink
+                        className="anchor-link"
+                        offset={50}
+                        href="#team"
+                    >
+                        Team & Gallery
+                    </AnchorLink>
+                    {menu === "teamgallery" && <img src={underline} alt="underline" />}
+                </li>
+
+
                 <li onClick={() => handleMenuClick("sponsors")}>
                     <AnchorLink className="anchor-link" offset={50} href="#sponsors">Sponsors</AnchorLink>
                     {menu === "sponsors" && <img src={underline} alt="underline" />}

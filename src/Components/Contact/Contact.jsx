@@ -9,26 +9,32 @@ const Contact = () => {
 
     const onSubmit = async (event) => {
         event.preventDefault();
+
         const formData = new FormData(event.target);
-
-        formData.append("access_key", "bc35d01f-7573-4ea4-817b-9ce622680969");
-
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
 
-        const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: json
-        }).then((res) => res.json());
+        try {
+            const response = await fetch(
+                "https://script.google.com/macros/s/AKfycbwx6Srv8aBIlYjTPIWY9Z6fm5JeqqxlCaqg3EKvj8l_DgYablsYIc9g3jrVjinrDkdl7w/exec", // <-- replace this
+                {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: json,
+                }
+            );
 
-        if (res.success) {
-            alert(res.message);
+            alert("Message sent successfully!");
+            event.target.reset();
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("There was an error sending your message. Please try again later.");
         }
     };
+
     return (
         <div id='contact' className="contact">
             <div className="contact-title">
@@ -39,7 +45,6 @@ const Contact = () => {
             <div className="contact-section">
                 <div className="contact-left">
                     <h1>Let’s Talk</h1>
-
 
                     <div className="contact-info">
                         <div className="contact-details">
@@ -53,20 +58,18 @@ const Contact = () => {
                         <div className="contact-details">
                             <img src={location_icon} alt="location icon" />
                             <p>St. Aloysius College, Edathua, Kuttanad Taluk, Kerala</p>
-
                         </div>
                     </div>
                 </div>
+
                 <form onSubmit={onSubmit} className="contact-right">
-                    <label htmlFor="">Your Name</label>
-                    <input type="text" placeholder='Enter your name' name='name' />
-                    <label htmlFor="">Your Email</label>
-                    <input type="text" placeholder='Enter your email' name='email' />
-                    <label htmlFor="">Write your message</label>
-                    <textarea name="Message" rows='8' placeholder='Enter Your Message'></textarea>
-                    <button type='submit' className="contact-submit">
-                        Submit Now
-                    </button>
+                    <label>Your Name</label>
+                    <input type="text" name="name" placeholder="Enter your name" required />
+                    <label>Your Email</label>
+                    <input type="email" name="email" placeholder="Enter your email" required />
+                    <label>Write your message</label>
+                    <textarea name="message" rows="8" placeholder="Enter your message" required></textarea>
+                    <button type="submit" className="contact-submit">Submit Now</button>
                 </form>
             </div>
         </div>

@@ -13,11 +13,13 @@ const Day2Events = () => {
     return (
         <div id="day2" className="events-section">
             <div className="events-title">
-                <h1>Day 2-Events</h1>
+                <h1>DAY 2-Events</h1>
                 <img src={theme_pattern} alt="" />
+
             </div>
 
             <div className="events-container">
+
                 {day2_data.map((event, index) => (
                     <div
                         key={index}

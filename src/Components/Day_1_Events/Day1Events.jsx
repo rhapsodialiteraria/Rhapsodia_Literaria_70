@@ -12,9 +12,13 @@ const Day1Events = () => {
 
     return (
         <div id="day1" className="events-section">
+
+
+
             <div className="events-title">
-                <h1>Day 1-Events</h1>
+                <h1>DAY 1-Events</h1>
                 <img src={theme_pattern} alt="" />
+
             </div>
 
             <div className="events-container">

@@ -2,124 +2,150 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 20px 170px;
+  margin: 20px 120px;
 }
 
 .nav-logo {
-  width: 120px;
+  width: 70px;
   height: auto;
   object-fit: contain;
 }
 
+/* === MAIN MENU === */
 .nav-menu {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 60px;
-  font-size: 30px;     /* Increased from 20px */
-  font-weight: 600;    /* Added for better emphasis */
+  gap: 45px;
+  font-size: 22px;  /* Reduced from 30px */
+  font-weight: 600;
 }
 
-
-.nav-connect {
-  padding: 20px 40px;
-  border-radius: 50px;
-  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.6%);
-  font-size: 22px;
+.nav-menu li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
   cursor: pointer;
-  transition: 0.5s;
+}
+
+.nav-menu li img {
+  width: 25px;
+  height: auto;
+}
+
+/* === CONNECT BUTTON === */
+.nav-connect {
+  padding: 14px 28px;
+  border-radius: 40px;
+  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.6%);
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4s ease;
 }
 
 .nav-connect:hover {
   transform: scale(1.05);
 }
 
-.nav-menu li {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.nav-menu li img {
-  display: flex;
-  margin: auto;
-  width: 30px;
-  height: auto;
-}
-
 .anchor-link {
   text-decoration: none;
   color: white;
+  transition: color 0.3s;
+}
+
+.anchor-link:hover {
+  color: #ffccff;
+}
+
+/* === MOBILE MENU BUTTONS === */
+.nav-mob-open {
+  display: none;
 }
 
 .nav-mob-close {
   display: none;
 }
 
-.nav-mob-open {
-  display: none;
-}
-
-/* ========================= */
-/* DROPDOWN (Programs) MENU  */
-/* ========================= */
-.dropdown {
+/* === PROGRAMS DROPDOWN === */
+.programs-menu {
   position: relative;
 }
 
-.dropdown > p {
+.programs-menu p {
   cursor: pointer;
 }
 
-.dropdown-menu {
+.programs-popup {
   position: absolute;
   top: 40px;
   left: 0;
-  background-color: #222;
+  background: #222;
   border-radius: 8px;
   padding: 10px 0;
-  min-width: 130px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   z-index: 10;
 }
 
-.dropdown-menu .anchor-link {
+.programs-popup p {
   color: white;
-  padding: 8px 16px;
-  text-decoration: none;
+  padding: 8px 20px;
+  margin: 0;
   font-size: 16px;
   transition: background 0.3s;
 }
 
-.dropdown-menu .anchor-link:hover {
-  background-color: #ff00ff;
+.programs-popup p:hover {
+  background: #ff00ff;
   color: black;
+  border-radius: 6px;
 }
 
-/* ========================= */
-/* MOBILE RESPONSIVE STYLES  */
-/* ========================= */
+/* ============================= */
+/*        MOBILE RESPONSIVE      */
+/* ============================= */
+@media (max-width: 1024px) {
+  .navbar {
+    margin: 20px 70px;
+  }
+
+  .nav-menu {
+    gap: 35px;
+    font-size: 20px;
+  }
+
+  .nav-connect {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
+
+/* === MOBILE (<=768px) === */
 @media (max-width: 768px) {
   .navbar {
-    margin: 20px 50px;
+    margin: 20px 40px;
   }
 
   .nav-logo {
-    width: 80px;
+    width: 60px;
   }
 
   .nav-connect {
     display: none;
   }
 
+  /* Show mobile menu icons */
   .nav-mob-open {
     display: block;
     position: fixed;
-    right: 30px;
+    right: 25px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 3;
   }
 
   .nav-mob-close {
@@ -127,42 +153,45 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 30px;
+    width: 28px;
     cursor: pointer;
     z-index: 3;
   }
 
+  /* Mobile menu container */
   .nav-menu {
-    
     position: fixed;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     top: 0;
-    gap: 30px;
+    gap: 25px;
     background-color: #1f0016;
-    width: 350px;
+    width: 300px;
     height: 100%;
     z-index: 2;
     transition: right 0.5s;
     right: -350px;
+    padding-top: 80px;
+    padding-left: 40px;
+    font-size: 22px;  /* Reduced for better fit */
   }
 
   .nav-menu li {
-    font-size: 30px;
-    padding-left: 100px;
     flex-direction: row;
-    gap: 20px;
+    align-items: center;
+    gap: 10px;
   }
 
-  /* Mobile dropdown adjustments */
-  .dropdown-menu {
+  /* Adjust dropdown for mobile */
+  .programs-popup {
     position: static;
     background: none;
     box-shadow: none;
-    padding: 5px 0;
+    padding: 0;
+    gap: 4px;
   }
 
-  .dropdown-menu .anchor-link {
-    padding-left: 20px;
+  .programs-popup p {
+    padding: 5px 0 5px 10px;
   }
 }

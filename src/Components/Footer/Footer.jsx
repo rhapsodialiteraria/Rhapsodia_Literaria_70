@@ -15,16 +15,14 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="footer-top-right">
-                    <img src={right_logo} alt="Right Logo" className="footer-right-logo" />
-                </div>
+
             </div>
 
             <hr />
 
             <div className="footer-bottom">
                 <p className="footer-bottom-left">
-                    © 2025 St. Aloysius College, Edathua. All rights reserved.
+                    © 2025 PaperClip. All rights reserved.
                 </p>
                 <div className="footer-bottom-right">
                     <p>Terms of Service</p>
